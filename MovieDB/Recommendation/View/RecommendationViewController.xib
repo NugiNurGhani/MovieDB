@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendationViewController" customModule="MovieDB" customModuleProvider="target">
+            <connections>
+                <outlet property="searchedLabel" destination="QbM-op-nXJ" id="M0h-Pb-7Sp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAT-Fx-W0a">
+                    <rect key="frame" x="20" y="64" width="334" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj1-Fr-cnb">
+                    <rect key="frame" x="364" y="65" width="30" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="44Q-9K-86b"/>
+                        <constraint firstAttribute="height" constant="30" id="yIt-7x-uq4"/>
+                    </constraints>
+                    <color key="tintColor" red="0.98441559079999996" green="0.8242375851" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing result of 'Searched Movie'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbM-op-nXJ">
+                    <rect key="frame" x="20" y="109.5" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-Rh-M9m">
+                    <rect key="frame" x="20" y="150.5" width="374" height="691.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="anX-Dy-EK7">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QbM-op-nXJ" secondAttribute="trailing" constant="20" id="MLO-hA-mlW"/>
+                <constraint firstItem="VE7-Rh-M9m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ptl-mk-zUF"/>
+                <constraint firstItem="QbM-op-nXJ" firstAttribute="top" secondItem="uAT-Fx-W0a" secondAttribute="bottom" constant="20" id="QPr-WW-BYs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VE7-Rh-M9m" secondAttribute="bottom" constant="20" id="UDN-pN-cGJ"/>
+                <constraint firstItem="fj1-Fr-cnb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Zju-C2-1cI"/>
+                <constraint firstItem="QbM-op-nXJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bt0-u6-B4P"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VE7-Rh-M9m" secondAttribute="trailing" constant="20" id="dNv-BY-3CO"/>
+                <constraint firstItem="uAT-Fx-W0a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="eha-44-9ys"/>
+                <constraint firstItem="VE7-Rh-M9m" firstAttribute="top" secondItem="QbM-op-nXJ" secondAttribute="bottom" constant="20" id="hsP-1Q-CAz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fj1-Fr-cnb" secondAttribute="trailing" constant="20" id="q0D-RO-tCb"/>
+                <constraint firstItem="fj1-Fr-cnb" firstAttribute="leading" secondItem="uAT-Fx-W0a" secondAttribute="trailing" constant="10" id="wxf-3K-e44"/>
+                <constraint firstItem="uAT-Fx-W0a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xgv-pD-sHB"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="97.767857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
