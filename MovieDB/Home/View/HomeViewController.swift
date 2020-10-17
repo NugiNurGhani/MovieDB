@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var imageArray: [UIImage] = [#imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "PosterEx")]
+    var imageArray: [UIImage] = [#imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx"), #imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx")]
     
     @IBOutlet weak var notificationImageView: UIImageView!
     @IBOutlet weak var movieDBLabel: UILabel!
@@ -42,17 +42,26 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 95, height: 145)
+        return CGSize(width: 120, height: 180)
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5 //imageArray.count
+        return 4 //imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
-        //cell.posterImage.image = imageArray[indexPath.row]
-        return cell
+        if collectionView == self.popularCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
+            //cell.posterImage.image = imageArray[indexPath.row]
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
+            cell.posterImage.image = imageArray[indexPath.row]
+            return cell
+        }
+        
     }
     
     
