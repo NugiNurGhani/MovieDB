@@ -63,6 +63,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         }
         
     }
-    
-    
 }
