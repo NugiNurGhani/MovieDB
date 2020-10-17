@@ -34,18 +34,8 @@ class HomeViewController: UIViewController {
         popularCollectionView.dataSource = self
         popularCollectionView.register(PosterCollectionViewCell.nib(), forCellWithReuseIdentifier: "PosterCollectionViewCell")
         popularCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        popularCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view.
     }
-
-
-    func setupCollection() {
-        let layout = UICollectionViewLayout()
-        popularCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        
-    }
-
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
