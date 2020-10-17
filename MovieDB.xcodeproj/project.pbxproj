@@ -30,6 +30,8 @@
 		2879C313253AAB2800331FA7 /* ComingSoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879C312253AAB2800331FA7 /* ComingSoonModel.swift */; };
 		2879C31C253AAC3C00331FA7 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879C31B253AAC3C00331FA7 /* DetailModel.swift */; };
 		2879C325253AB02700331FA7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879C324253AB02700331FA7 /* Constants.swift */; };
+		2893D1DE253B89CF0051617E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2893D1DC253B89CF0051617E /* FavoriteTableViewCell.swift */; };
+		2893D1DF253B89CF0051617E /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2893D1DD253B89CF0051617E /* FavoriteTableViewCell.xib */; };
 		28F3E3CF253B0EAD00AF638C /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3E3CD253B0EAD00AF638C /* PosterCollectionViewCell.swift */; };
 		28F3E3D0253B0EAD00AF638C /* PosterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F3E3CE253B0EAD00AF638C /* PosterCollectionViewCell.xib */; };
 		28F3E3D6253B148700AF638C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3E3D4253B148700AF638C /* DetailViewController.swift */; };
@@ -86,6 +88,8 @@
 		2879C312253AAB2800331FA7 /* ComingSoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonModel.swift; sourceTree = "<group>"; };
 		2879C31B253AAC3C00331FA7 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		2879C324253AB02700331FA7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2893D1DC253B89CF0051617E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		2893D1DD253B89CF0051617E /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		28F3E3CD253B0EAD00AF638C /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		28F3E3CE253B0EAD00AF638C /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
 		28F3E3D4253B148700AF638C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +375,8 @@
 				28F3E3CE253B0EAD00AF638C /* PosterCollectionViewCell.xib */,
 				28352C98253B7E6D008D1798 /* PopularCollectionViewCell.swift */,
 				28352C99253B7E6D008D1798 /* PopularCollectionViewCell.xib */,
+				2893D1DC253B89CF0051617E /* FavoriteTableViewCell.swift */,
+				2893D1DD253B89CF0051617E /* FavoriteTableViewCell.xib */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				2879C2E7253AA42200331FA7 /* RecommendationViewController.xib in Resources */,
 				2879C2EE253AA43400331FA7 /* FavoriteViewController.xib in Resources */,
 				2879C2E0253AA40F00331FA7 /* HomeViewController.xib in Resources */,
+				2893D1DF253B89CF0051617E /* FavoriteTableViewCell.xib in Resources */,
 				28352C9B253B7E6D008D1798 /* PopularCollectionViewCell.xib in Resources */,
 				28F3E3D0253B0EAD00AF638C /* PosterCollectionViewCell.xib in Resources */,
 			);
@@ -651,6 +658,7 @@
 				2879C2ED253AA43400331FA7 /* FavoriteViewController.swift in Sources */,
 				2879C2E6253AA42200331FA7 /* RecommendationViewController.swift in Sources */,
 				2879C313253AAB2800331FA7 /* ComingSoonModel.swift in Sources */,
+				2893D1DE253B89CF0051617E /* FavoriteTableViewCell.swift in Sources */,
 				2879C295253AA1DB00331FA7 /* AppDelegate.swift in Sources */,
 				2879C31C253AAC3C00331FA7 /* DetailModel.swift in Sources */,
 				2879C297253AA1DB00331FA7 /* SceneDelegate.swift in Sources */,
