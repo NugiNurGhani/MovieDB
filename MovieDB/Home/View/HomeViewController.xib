@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MovieDB" customModuleProvider="target">
             <connections>
+                <outlet property="comingSoonCollectionView" destination="AOc-uh-in2" id="RoS-O6-Pvj"/>
                 <outlet property="imageBannerView" destination="CQ0-ac-O0E" id="vz2-zE-PSL"/>
                 <outlet property="movieDBLabel" destination="CYY-of-eKO" id="nUj-cJ-cLw"/>
                 <outlet property="notificationImageView" destination="Pc8-V4-Irg" id="mUK-9G-tVL"/>
@@ -105,9 +106,33 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vp-op-lHJ">
                                     <rect key="frame" x="0.0" y="630" width="375" height="255"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nd-LT-rke">
+                                            <rect key="frame" x="20" y="30" width="114.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AOc-uh-in2">
+                                            <rect key="frame" x="20" y="51.5" width="355" height="203.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tKA-ts-wyb">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                        </collectionView>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     <constraints>
+                                        <constraint firstItem="AOc-uh-in2" firstAttribute="top" secondItem="5nd-LT-rke" secondAttribute="bottom" id="2t8-GC-w7b"/>
                                         <constraint firstAttribute="height" constant="255" id="4Ny-Vv-7pS"/>
+                                        <constraint firstAttribute="trailing" secondItem="AOc-uh-in2" secondAttribute="trailing" id="AEr-JM-6qR"/>
+                                        <constraint firstItem="5nd-LT-rke" firstAttribute="top" secondItem="2Vp-op-lHJ" secondAttribute="top" constant="30" id="F2L-qF-Qaq"/>
+                                        <constraint firstItem="AOc-uh-in2" firstAttribute="leading" secondItem="2Vp-op-lHJ" secondAttribute="leading" constant="20" id="PQt-Nz-cG9"/>
+                                        <constraint firstAttribute="bottom" secondItem="AOc-uh-in2" secondAttribute="bottom" id="acy-KC-cT6"/>
+                                        <constraint firstItem="5nd-LT-rke" firstAttribute="leading" secondItem="2Vp-op-lHJ" secondAttribute="leading" constant="20" id="oyY-ZG-S8H"/>
                                     </constraints>
                                 </view>
                             </subviews>

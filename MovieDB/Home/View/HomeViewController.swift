@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var movieDBLabel: UILabel!
     @IBOutlet weak var imageBannerView: UIImageView!
     @IBOutlet weak var popularCollectionView: UICollectionView!
+    @IBOutlet weak var comingSoonCollectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,8 +33,10 @@ class HomeViewController: UIViewController {
         notificationImageView.tintColor = UIColor.white
         popularCollectionView.delegate = self
         popularCollectionView.dataSource = self
+        comingSoonCollectionView.delegate = self
+        comingSoonCollectionView.dataSource = self
         popularCollectionView.register(PosterCollectionViewCell.nib(), forCellWithReuseIdentifier: "PosterCollectionViewCell")
-        popularCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        comingSoonCollectionView.register(PosterCollectionViewCell.nib(), forCellWithReuseIdentifier: "PosterCollectionViewCell")
         // Do any additional setup after loading the view.
     }
 }
