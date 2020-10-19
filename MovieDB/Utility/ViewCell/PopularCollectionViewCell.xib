@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-tc-Yns">
-                        <rect key="frame" x="0.0" y="336" width="24" height="13.5"/>
+                        <rect key="frame" x="0.0" y="331" width="24" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="ewh-tc-Yns" firstAttribute="top" secondItem="uP0-vE-o2U" secondAttribute="bottom" constant="10" id="0zT-Fi-YCD"/>
+                <constraint firstItem="ewh-tc-Yns" firstAttribute="top" secondItem="uP0-vE-o2U" secondAttribute="bottom" constant="5" id="0zT-Fi-YCD"/>
                 <constraint firstItem="puf-rY-SvP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5bi-Ee-LN1"/>
                 <constraint firstAttribute="trailing" secondItem="puf-rY-SvP" secondAttribute="trailing" id="Pui-wN-5lH"/>
                 <constraint firstItem="puf-rY-SvP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y4A-pw-IVU"/>

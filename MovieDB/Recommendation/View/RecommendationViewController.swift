@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecommendationViewController: UIViewController {
+    
+    var popularPosterImage: [UIImageView] = []
+    var dummyImage =  UIImageView()
+    var titleArray: [String] = []
+    var scores: [Double] = []
+    var poster: UIImageView?
+    var viewModel = MovieViewModel()
+    var popularPosterURLArray: [String] = []
     
     @IBOutlet weak var searchedLabel: UILabel!
     @IBOutlet weak var popularCollectionView: UICollectionView!
@@ -24,11 +33,42 @@ class RecommendationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dummyImage.image = #imageLiteral(resourceName: "BannerEx")
+        
         searchedLabel.isHidden = true
+        
+        viewModel.getPopularMovies()
+        
+        for _ in 0...9 {
+            popularPosterImage.append(dummyImage)
+            popularPosterURLArray.append("")
+            titleArray.append("")
+            scores.append(0.0)
+        }
+        
         popularCollectionView.delegate = self
         popularCollectionView.dataSource = self
         popularCollectionView.register(PopularCollectionViewCell.nib(), forCellWithReuseIdentifier: "PopularCollectionViewCell")
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if viewModel.popularMovie.count != 0 {
+            for i in 0..<popularPosterURLArray.count {
+                popularPosterURLArray[i] = K.imgURL+viewModel.popularMovie[i].posterPath
+                titleArray[i] = viewModel.popularMovie[i].title
+                scores[i] = viewModel.popularMovie[i].voteAverage
+                poster?.sd_setImage(with: URL(string: popularPosterURLArray[i]))
+                popularPosterImage[i] = poster ?? dummyImage
+            }
+            
+//            print("popular: \(popularPosterURLArray)")
+            
+            DispatchQueue.main.async {
+                self.popularCollectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -47,12 +87,14 @@ extension RecommendationViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCollectionViewCell", for: indexPath) as! PopularCollectionViewCell
-        //cell.posterImage.image = imageArray[indexPath.row]
+        cell.popularImageView.sd_setImage(with: URL(string: popularPosterURLArray[indexPath.row]))
+        cell.titleLabel.text = titleArray[indexPath.row]
+        cell.castLabel.text = "Score: \(scores[indexPath.row])"
         return cell
     }
     
