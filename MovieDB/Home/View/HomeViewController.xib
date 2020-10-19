@@ -58,7 +58,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSn-99-4yd">
                                     <rect key="frame" x="0.0" y="80" width="375" height="295"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BannerEx" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-ac-O0E">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-ac-O0E">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="295" id="bbm-SH-u9D"/>
@@ -161,7 +161,6 @@
         </view>
     </objects>
     <resources>
-        <image name="BannerEx" width="526" height="365"/>
         <image name="notificationTMDB" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

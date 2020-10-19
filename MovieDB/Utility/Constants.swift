@@ -9,7 +9,7 @@ import Foundation
 
 struct K {
     static let baseURL    = "https://api.themoviedb.org/3/"
-    static let imgURL     = "https://image.tmdb.org/t/p/w500/"
+    static let imgURL     = "https://image.tmdb.org/t/p/w500"
     static let detail     = "movie/"
     static let discover   = "discover/movie"
     static let language   = "&language=en-US"

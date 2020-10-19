@@ -15,6 +15,8 @@ class MovieViewModel {
     }
     
     var dataMovie: [DetailModel] = []
+    var popularMovie: [DiscoverResult] = []
+    var comingSoonMovie: [DiscoverResult] = []
     
     func getDetail(params: String) {
         guard let repo = repository else { return }
@@ -26,14 +28,56 @@ class MovieViewModel {
                     do {
                         let dataObject = try JSONDecoder().decode(DetailModel.self, from: data)
                         self.dataMovie.append(dataObject)
-                        DispatchQueue.main.async {
-                            print("movieName: \(dataObject.title)")
-                        }
+//                        DispatchQueue.main.async {
+//                            print("movieName: \(dataObject.title)")
+//                        }
                     }catch{
                         print(error)
                     }
                 }
             }
+        }
+    }
+    
+    func getPopularMovies() {
+        guard let repo = repository else { return }
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            repo.getPopular(completion: { result, error in
+                if error != nil {
+                }else{
+                    guard let data = result else { return }
+                    do {
+                        let dataObject = try JSONDecoder().decode(DiscoverModel.self, from: data)
+                        self.popularMovie.append(contentsOf: dataObject.results)
+//                        DispatchQueue.main.async {
+//                            print("movieName: \(self.popularMovie)")
+//                        }
+                    }catch{
+                        print(error)
+                    }
+                }
+            })
+        }
+    }
+    
+    func getComingSoonMovies() {
+        guard let repo = repository else { return }
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            repo.getComingSoon(completion: { result, error in
+                if error != nil {
+                }else{
+                    guard let data = result else { return }
+                    do {
+                        let dataObject = try JSONDecoder().decode(DiscoverModel.self, from: data)
+                        self.comingSoonMovie.append(contentsOf: dataObject.results)
+//                        DispatchQueue.main.async {
+//                            print("movieName: \(self.popularMovie)")
+//                        }
+                    }catch{
+                        print(error)
+                    }
+                }
+            })
         }
     }
 }

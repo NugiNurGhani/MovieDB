@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
-     var testModel = MovieViewModel()
     
-    var imageArray: [UIImage] = [#imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx"), #imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx")]
+    var popularPosterImage: [UIImageView] = []
+    var comingSoonPosterImage: [UIImageView] = []
+    var poster: UIImageView?
+    var testModel = MovieViewModel()
+    var popularPosterURLArray: [String] = ["", "", "", "", "", "", "", "", "", "" ]
+    var comingSoonPosterURLArray: [String] = ["", "", "", "", "", "", "", "", "", "" ]
     
     @IBOutlet weak var notificationImageView: UIImageView!
     @IBOutlet weak var movieDBLabel: UILabel!
@@ -22,16 +27,20 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        testModel.getDetail(params: "581392")
-        print("hello: ")
+        testModel.getPopularMovies()
+        testModel.getComingSoonMovies()
+        for _ in 0...9 {
+            popularPosterImage.append(imageBannerView)
+            comingSoonPosterImage.append(imageBannerView)
+        }
         notificationImageView.image = notificationImageView.image?.withRenderingMode(.alwaysTemplate)
         notificationImageView.tintColor = UIColor.white
         popularCollectionView.delegate = self
@@ -45,7 +54,29 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("yo: \(testModel.dataMovie[0].originalTitle)")
+        if testModel.popularMovie.count != 0 {
+            imageBannerView.sd_setImage(with: URL(string: K.imgURL+testModel.popularMovie[0].backdropPath!))
+            for i in 0..<popularPosterURLArray.count {
+                popularPosterURLArray[i] = K.imgURL+testModel.popularMovie[i].posterPath
+                poster?.sd_setImage(with: URL(string: popularPosterURLArray[i]))
+                popularPosterImage[i] = poster ?? imageBannerView
+            }
+            print("popular: \(popularPosterURLArray)")
+            DispatchQueue.main.async {
+                self.popularCollectionView.reloadData()
+            }
+        }
+        if testModel.comingSoonMovie.count != 0 {
+            for i in 0..<comingSoonPosterURLArray.count {
+                comingSoonPosterURLArray[i] = K.imgURL+testModel.comingSoonMovie[i].posterPath
+                poster?.sd_setImage(with: URL(string: comingSoonPosterURLArray[i]))
+                comingSoonPosterImage[i] = poster ?? imageBannerView
+            }
+            print("comingSoon: \(comingSoonPosterURLArray)")
+            DispatchQueue.main.async {
+                self.comingSoonCollectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -56,17 +87,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4 //imageArray.count
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.popularCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
-            //cell.posterImage.image = imageArray[indexPath.row]
+            cell.posterImage.sd_setImage(with: URL(string: popularPosterURLArray[indexPath.row]))
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
-            cell.posterImage.image = imageArray[indexPath.row]
+            cell.posterImage.sd_setImage(with: URL(string: comingSoonPosterURLArray[indexPath.row]))
             return cell
         }
         
