@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     var comingSoonPosterImage: [UIImageView] = []
     var poster: UIImageView?
     var testModel = MovieViewModel()
+    var bannerImage: [UIImageView] =  []
+    var changeImageCounter = 0
     var popularPosterURLArray: [String] = ["", "", "", "", "", "", "", "", "", "" ]
     var comingSoonPosterURLArray: [String] = ["", "", "", "", "", "", "", "", "", "" ]
     
@@ -35,6 +37,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let mdl = "MovieDB"
+        let attributedLabel = NSMutableAttributedString(string: mdl)
+        attributedLabel.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.9844155908, green: 0.8242375851, blue: 0, alpha: 1), range: NSRange(location: 5, length: 2))
+        movieDBLabel.attributedText = attributedLabel
         testModel.getPopularMovies()
         testModel.getComingSoonMovies()
         for _ in 0...9 {
@@ -55,7 +61,10 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if testModel.popularMovie.count != 0 {
-            imageBannerView.sd_setImage(with: URL(string: K.imgURL+testModel.popularMovie[0].backdropPath!))
+            imageBannerView.sd_setImage(with: URL(string: K.imgURL+testModel.popularMovie[Int.random(in: 0..<10)].backdropPath!))
+            
+            _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+            
             for i in 0..<popularPosterURLArray.count {
                 popularPosterURLArray[i] = K.imgURL+testModel.popularMovie[i].posterPath
                 poster?.sd_setImage(with: URL(string: popularPosterURLArray[i]))
@@ -77,6 +86,9 @@ class HomeViewController: UIViewController {
                 self.comingSoonCollectionView.reloadData()
             }
         }
+    }
+    @objc func changeImage() {
+        imageBannerView.sd_setImage(with: URL(string: K.imgURL+testModel.popularMovie[Int.random(in: 0..<10)].backdropPath!))
     }
 }
 
