@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+     var testModel = MovieViewModel()
     
     var imageArray: [UIImage] = [#imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx"), #imageLiteral(resourceName: "PosterEx"), #imageLiteral(resourceName: "BannerEx")]
     
@@ -29,6 +30,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        testModel.getDetail(params: "581392")
+        print("hello: ")
         notificationImageView.image = notificationImageView.image?.withRenderingMode(.alwaysTemplate)
         notificationImageView.tintColor = UIColor.white
         popularCollectionView.delegate = self
@@ -38,6 +41,11 @@ class HomeViewController: UIViewController {
         popularCollectionView.register(PosterCollectionViewCell.nib(), forCellWithReuseIdentifier: "PosterCollectionViewCell")
         comingSoonCollectionView.register(PosterCollectionViewCell.nib(), forCellWithReuseIdentifier: "PosterCollectionViewCell")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("yo: \(testModel.dataMovie[0].originalTitle)")
     }
 }
 

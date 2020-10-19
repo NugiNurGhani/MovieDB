@@ -1,16 +1,16 @@
 //
-//  BannerModel.swift
+//  TopRatedModel.swift
 //  MovieDB
 //
-//  Created by Nugi Nuryanto G on 17/10/20.
+//  Created by Nugi Nuryanto G on 19/10/20.
 //
 
 import Foundation
 
-// MARK: - BannerModel
-struct BannerModel: Codable {
+// MARK: - TopRatedModel
+struct TopRatedModel: Codable {
     let page, totalResults, totalPages: Int
-    let results: [Result]
+    let results: [TopRatedResult]
 
     enum CodingKeys: String, CodingKey {
         case page
@@ -20,17 +20,15 @@ struct BannerModel: Codable {
     }
 }
 
-// MARK: - Result
-struct Result: Codable {
+// MARK: - TopRatedResult
+struct TopRatedResult: Codable {
     let popularity: Double
     let voteCount: Int
     let video: Bool
     let posterPath: String
     let id: Int
     let adult: Bool
-    let backdropPath: String
-    let originalLanguage: OriginalLanguage
-    let originalTitle: String
+    let backdropPath, originalLanguage, originalTitle: String
     let genreIDS: [Int]
     let title: String
     let voteAverage: Double
@@ -51,10 +49,4 @@ struct Result: Codable {
         case overview
         case releaseDate = "release_date"
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case es = "es"
-    case ko = "ko"
 }

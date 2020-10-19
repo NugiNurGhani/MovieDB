@@ -1,16 +1,16 @@
 //
-//  PopularModel.swift
+//  DiscoverModel.swift
 //  MovieDB
 //
-//  Created by Nugi Nuryanto G on 17/10/20.
+//  Created by Nugi Nuryanto G on 19/10/20.
 //
 
 import Foundation
 
-// MARK: - PopularModel
-struct PopularModel: Codable {
+// MARK: - DiscoverModel
+struct DiscoverModel: Codable {
     let page, totalResults, totalPages: Int
-    let results: [ResultPopular]
+    let results: [DiscoverResult]
 
     enum CodingKeys: String, CodingKey {
         case page
@@ -20,16 +20,16 @@ struct PopularModel: Codable {
     }
 }
 
-// MARK: - Result
-struct ResultPopular: Codable {
+// MARK: - DiscoverResult
+struct DiscoverResult: Codable {
     let popularity: Double
     let voteCount: Int
     let video: Bool
     let posterPath: String
     let id: Int
     let adult: Bool
-    let backdropPath: String
-    let originalLanguage: OriginalLanguagePopular
+    let backdropPath: String?
+    let originalLanguage: OriginalLanguage
     let originalTitle: String
     let genreIDS: [Int]
     let title: String
@@ -53,8 +53,8 @@ struct ResultPopular: Codable {
     }
 }
 
-enum OriginalLanguagePopular: String, Codable {
+enum OriginalLanguage: String, Codable {
     case en = "en"
-    case es = "es"
+    case ja = "ja"
     case ko = "ko"
 }
